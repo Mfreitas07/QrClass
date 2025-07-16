@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fundo.png'); /* Imagem de fundo da URL externa */
+    background-size: cover;  /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.top-bar {
+    background-color: #1ba4c1;
+    height: 100px; 
+    width: 100%;
+    padding: 10px 10px 10px 10px auto;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center; /* Alinha o conteúdo horizontalmente */
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); 
+    width: 300px;
+    overflow: hidden;
+}
+.container img {
+    width: 40px;
+    height: auto;
+    display: block;
+    margin: 0;
+  }
+
+.formCadastro {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px 40px 0 40px;
+    gap: 5px;
+}
+
+h1 {
+    display: block;
+    text-align: center;
+    font-size: 2em;
+    margin-block-start: 0;
+    font-weight: bold;
+    color: white;
+}
+
+.formCadastro p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.formCadastro input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    border-radius: 10px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+.formCadastro input:focus {
+    border: 1px solid #f72585;
+}
+
+.formCadastro label {
+    font-size: 14px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.formCadastro a {
+    display: inline-block;
+    margin-bottom: 20px ;
+    width: 40px;
+    height: 40px;
+}
+
+.formCadastro a:hover {
+    color: #f72585;
+}
+
+.btn {
+    display: block;
+    margin:  auto;
+    width: 130px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #fc65fa;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #df13ce;
+}
+/* estilo do link de voltar */
+.back-button {
+    position: absolute;
+    bottom: 1rem;      /* 16px de distância da base */
+    left: 1rem;        /* 16px do lado esquerdo */
+    display: inline-block;
+  }

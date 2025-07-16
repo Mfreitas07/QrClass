@@ -1,0 +1,158 @@
+html, body { 
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fundo.png');
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Impede a rolagem */
+    color: white;
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #1ba4c1;
+    color: white;
+    padding: 35px 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+    height: 20vh;
+}
+
+.top-bar img {
+    height: 15vh;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 4vw;
+    word-break: break-word;
+}
+
+/* Container para alinhar Turma e Aluno horizontalmente */
+.access {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: calc(100vh - 130px);
+    justify-content: flex-start;
+    margin-top: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Alinha os itens nas extremidades */
+    width: 100%; /* Ajuste conforme necessário */
+    gap: 20px; /* Espaço entre colunas */
+}
+
+/* Estilo dos blocos de turma e aluno */
+.turma, .aluno {
+    width: 48%; /* Ajuste para caber lado a lado com espaçamento */
+    padding: 10px;
+    background: rgba(27, 164, 193, 0.2); /* Fundo semi-transparente para destaque */
+    border-radius: 8px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Para rolar se conteúdo for maior */
+    max-height: 65vh; /* Limita a altura para evitar overflow da página */
+    text-align: center;
+}
+
+/* Títulos */
+.turma h1, .aluno h1 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+/* Estilo das tabelas */
+.turma table, .aluno table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Cabeçalho da tabela */
+.turma table th, .aluno table th {
+    background-color: rgba(27, 164, 193, 0.8);
+    padding: 10px;
+    text-align: center;
+}
+
+/* Linhas da tabela */
+.turma table td, .aluno table td {
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px;
+    text-align: center;
+}
+
+/* Linhas alternadas para melhor leitura */
+.turma table tr:nth-child(even), .aluno table tr:nth-child(even) {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Hover nas linhas */
+.turma table tr:hover, .aluno table tr:hover {
+    background-color: rgba(27, 164, 193, 0.5);
+    cursor: default;
+}
+
+/* Estilo do select (dropdown) */
+.turma form select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background-color: rgba(255,255,255,0.9);
+    color: #1ba4c1;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.turma form select:hover, .turma form select:focus {
+    background-color: #d0f0fd;
+}
+
+/* Scrollbar customizado para blocos com overflow */
+.turma::-webkit-scrollbar, .aluno::-webkit-scrollbar {
+    width: 8px;
+}
+
+.turma::-webkit-scrollbar-track, .aluno::-webkit-scrollbar-track {
+    background: rgba(197, 192, 192, 0.1);
+}
+
+.turma::-webkit-scrollbar-thumb, .aluno::-webkit-scrollbar-thumb {
+    background-color: rgba(27, 164, 193, 0.8);
+    border-radius: 4px;
+}
+.voltar-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+
+    background-color: rgb(255, 255, 255); 
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+.voltar-btn img {
+    width: 50px;
+    height: auto;
+    display: block;
+}

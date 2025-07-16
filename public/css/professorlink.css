@@ -1,0 +1,99 @@
+html, body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fundo.png');
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Impede a rolagem */
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #1ba4c1;
+    color: white;
+    padding: 35px 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+    height: 20vh
+}
+
+.top-bar img {
+    height: 15vh
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size:  4vw;
+    word-break: break-word;
+}
+
+/* Área de botões */
+.access {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    height: calc(100vh - 130px);
+    justify-content: flex-start;
+    margin-top: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-decoration-color: white;
+}
+.access input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    border-radius: 10px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+.access input:focus {
+    border: 1px solid #f72585;
+}
+
+
+/* Botões */
+.btn {
+    background-color: #fc65fa;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    width: 200px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #df13ce;
+}
+
+.voltar-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+
+    background-color: rgb(255, 255, 255); 
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+.voltar-btn img {
+    width: 50px;
+    height: auto;
+    display: block;
+}
