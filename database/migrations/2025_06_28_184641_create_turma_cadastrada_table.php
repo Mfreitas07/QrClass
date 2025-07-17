@@ -6,18 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-   public function up()
-{
-    Schema::create('turma_cadastrada', function (Blueprint $table) {
-        $table->id(); // Cria a coluna 'id' como chave primária
-        $table->string('curso');
-        $table->string('turma');
-        $table->timestamps(); // Cria as colunas created_at e updated_at
-    });
+    public function up()
+    {
+        Schema::create('turma_cadastrada', function (Blueprint $table) {
+            $table->id(); // Cria a coluna 'id' como chave primária
+            $table->string('curso');
+            $table->string('turma');
+            $table->timestamps();
+        });
+    }
 
-}
-public function down()
-{
-    Schema::dropIfExists('turma_cadastrada');
-}
+    public function down()
+    {
+        Schema::dropIfExists('turma_cadastrada');
+    }
 };

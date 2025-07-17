@@ -28,7 +28,7 @@
         <!-- Lista de alunos presentes -->
         <div class="lista-section">
             <h2>Alunos Presentes</h2>
-            <ul>
+            <ul id="lista-presencas">
                 @forelse ($presencas as $presenca)
                     <li>{{ $presenca->aluno->nome_aluno }} ({{ $presenca->horario->format('H:i') }})</li>
                 @empty
@@ -39,8 +39,33 @@
     </div>
 
     <!-- Botão voltar -->
-    <a href="{{ route('dashboard') }}" class="voltar-btn">
+    <a href="{{ route('chamada') }}" class="voltar-btn">
         <img src="{{ asset('img/seta.png') }}" alt="Voltar">
     </a>
+
+    <script>
+        const chamadaId = {{ $chamada->id }};
+        const listaPresencas = document.getElementById('lista-presencas');
+
+        function atualizarLista() {
+            fetch(`/chamada/${chamadaId}/presencas-json`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        listaPresencas.innerHTML = '<li>Nenhum aluno ainda</li>';
+                    } else {
+                        listaPresencas.innerHTML = data.map(presenca => 
+                            `<li>${presenca.nome} (${presenca.horario})</li>`
+                        ).join('');
+                    }
+                })
+                .catch(err => {
+                    console.error('Erro ao carregar presenças:', err);
+                });
+        }
+
+        // Atualiza a lista a cada 10 segundos
+        setInterval(atualizarLista, 5000);
+    </script>
 </body>
 </html>

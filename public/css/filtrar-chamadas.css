@@ -1,0 +1,124 @@
+/* filtrar-chamadas.css */
+
+html, body { 
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fundo.png');
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #1ba4c1;
+    color: white;
+    padding: 35px 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+    height: 20vh;
+}
+
+.top-bar img {
+    height: 15vh;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 4vw;
+    word-break: break-word;
+}
+
+/* Container do conteúdo principal */
+.access {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: calc(100vh - 130px);
+    margin-top: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo do formulário */
+form.filtro-chamadas-form {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(27, 164, 193, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    box-sizing: border-box;
+}
+
+form.filtro-chamadas-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form.filtro-chamadas-form input[type="date"],
+form.filtro-chamadas-form select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+form.filtro-chamadas-form select {
+    color: #1ba4c1;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.9);
+    transition: background-color 0.3s ease;
+}
+
+form.filtro-chamadas-form select:hover,
+form.filtro-chamadas-form select:focus {
+    background-color: #d0f0fd;
+}
+
+form.filtro-chamadas-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1ba4c1;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form.filtro-chamadas-form button:hover {
+    background-color: #1688a4;
+}
+
+/* Botão voltar fixo */
+.voltar-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: rgb(255, 255, 255); 
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.voltar-btn img {
+    width: 50px;
+    height: auto;
+    display: block;
+}

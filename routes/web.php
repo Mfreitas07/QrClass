@@ -101,3 +101,15 @@ Route::get('/painel-chamada/{chamada_id}', [ChamadaController::class, 'painelCha
 
 // Registro da presença via leitura do QR Code
 Route::get('/presenca/{codigo}', [ChamadaController::class, 'registrarPresenca'])->name('chamada.verificar');
+
+
+Route::get('/chamada/gerar-redirect', function (Illuminate\Http\Request $request) {
+    return redirect()->route('chamada.gerar', $request->turma_id);
+})->name('chamada.gerar.redirect');
+
+Route::get('/chamada/{id}/presencas-json', [ChamadaController::class, 'presencasJson'])->name('chamada.presencasJson');
+
+
+// Filtro por data e turma
+Route::get('/filtro-chamadas', [ChamadaController::class, 'filtroPorDataETurma'])->name('chamada.filtro');
+Route::post('/filtro-chamadas', [ChamadaController::class, 'resultadoFiltro'])->name('chamada.resultado');

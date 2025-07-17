@@ -23,7 +23,7 @@
             @endif
         @csrf
             <label for="name">Nome:</label>
-            <input type="text" name="name" id="name" value="{{ old('name') }}">
+            <input type="text" placeholder="Digite seu nome" name="name" id="name" value="{{ old('name') }}">
             <label for="email">E-mail:</label>
             <input type="email" placeholder="Digite seu e-mail" name="email" id="email" value="{{ old('email') }}" />
             <label for="password">Senha:</label>

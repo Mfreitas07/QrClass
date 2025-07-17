@@ -1,0 +1,113 @@
+/* chamadas-encontradas.css */
+
+html, body { 
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fundo.png');
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: auto;
+    color: white;
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #1ba4c1;
+    color: white;
+    padding: 35px 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+    height: 20vh;
+}
+
+.top-bar img {
+    height: 15vh;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 4vw;
+    word-break: break-word;
+}
+
+/* Container do conteúdo */
+.access {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto 80px auto;
+    background: rgba(27, 164, 193, 0.7);
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: white;
+}
+
+/* Estilo da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    color: white;
+}
+
+thead th {
+    background-color: rgba(27, 164, 193, 0.8);
+    padding: 12px;
+    text-align: center;
+}
+
+tbody td {
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255,255,255,0.1);
+}
+
+tbody tr:hover {
+    background-color: rgba(27, 164, 193, 0.5);
+}
+
+a.link-abrir {
+    color: #fff;
+    background-color: #1ba4c1;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+a.link-abrir:hover {
+    background-color: #1688a4;
+}
+
+/* Parágrafo de mensagem */
+p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Link voltar fixo */
+.voltar-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: rgb(255, 255, 255); 
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.voltar-btn img {
+    width: 50px;
+    height: auto;
+    display: block;
+}

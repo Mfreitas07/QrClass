@@ -56,6 +56,7 @@ class ChamadaController extends Controller
         Presenca::create([
             'aluno_id' => $aluno_id,
             'chamada_id' => $chamada->id,
+            'horario' => now(),
         ]);
 
         return view('confirmacao');
@@ -65,5 +66,47 @@ class ChamadaController extends Controller
 {
     $turmas = TurmaCadastrada::all();
     return view('chamada', compact('turmas'));
+}
+
+    public function presencasJson($id)
+{
+    $presencas = Presenca::where('chamada_id', $id)
+        ->with('aluno') // carrega dados do aluno
+        ->get();
+
+    // Formata os dados para enviar só o que precisa
+    $dados = $presencas->map(function($p) {
+        return [
+            'nome' => $p->aluno->nome_aluno,
+            'horario' => $p->horario->format('H:i'),
+        ];
+    });
+
+    return response()->json($dados);
+}
+
+public function filtroPorDataETurma()
+{
+    $turmas = TurmaCadastrada::all(); // Mostra todas as turmas
+    return view('filtroChamadaDataTurma', compact('turmas'));
+}
+
+public function resultadoFiltro(Request $request)
+{
+    $request->validate([
+        'data' => 'required|date',
+        'turma_id' => 'required|exists:turma_cadastrada,id',
+    ]);
+
+    $dataSelecionada = $request->input('data');
+    $turmaId = $request->input('turma_id');
+
+    $chamadas = Chamada::with('turma')
+        ->whereDate('data_aula', $dataSelecionada)
+        ->where('turma_id', $turmaId)
+        ->orderBy('data_aula', 'asc')
+        ->get();
+
+    return view('resultadoChamadaDataTurma', compact('chamadas', 'dataSelecionada'));
 }
 }

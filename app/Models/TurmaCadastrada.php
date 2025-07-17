@@ -11,8 +11,6 @@ class TurmaCadastrada extends Model
 
     protected $fillable = ['curso', 'turma'];
 
-     public $timestamps = false;
-
     public function alunos()
     {
         return $this->hasMany(Alunos::class, 'turma_id');

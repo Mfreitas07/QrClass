@@ -59,7 +59,7 @@ html, body {
 .turma, .aluno {
     width: 48%; /* Ajuste para caber lado a lado com espaçamento */
     padding: 10px;
-    background: rgba(27, 164, 193, 0.2); /* Fundo semi-transparente para destaque */
+    background: rgba(27, 164, 193, 0.7); /* Fundo semi-transparente para destaque */
     border-radius: 8px;
     box-sizing: border-box;
     overflow-y: auto; /* Para rolar se conteúdo for maior */
