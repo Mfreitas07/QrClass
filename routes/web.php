@@ -76,9 +76,9 @@ Route::middleware(['auth'])->group(function () {
 
     // 👨‍🎓 Alunos
     Route::get('/cadastrar-aluno', function () {
-        $turmas = \App\Models\TurmaCadastrada::all();
-        return view('cadastrarAluno', compact('turmas'));
-    })->name('aluno.create');
+    $turmas = \App\Models\TurmaCadastrada::where('user_id', auth()->id())->get(); // ✅ Apenas as turmas do professor logado
+    return view('cadastrarAluno', compact('turmas'));
+})->name('aluno.create');
 
     Route::post('/cadastrar-aluno', [Cad_AlunoController::class, 'store'])->name('aluno.store');
     Route::get('/listar-alunos', [Cad_AlunoController::class, 'index'])->name('aluno.index');

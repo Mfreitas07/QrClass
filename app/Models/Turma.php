@@ -8,6 +8,6 @@ class Turma extends Model
 {
       protected $table = 'turma_cadastrada';
 
-    protected $fillable = ['curso', 'turma'];
+    protected $fillable = ['curso', 'turma', 'user_id'];
 
 }

@@ -9,11 +9,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('turma_cadastrada', function (Blueprint $table) {
-            $table->id(); // Cria a coluna 'id' como chave primária
+            $table->id();
             $table->string('curso');
             $table->string('turma');
+
+            $table->unsignedBigInteger('user_id'); // chave estrangeira para o professor
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
-        });
+});
     }
 
     public function down()

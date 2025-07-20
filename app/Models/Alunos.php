@@ -13,6 +13,7 @@ class Alunos extends Model
         'email',
         'password',
         'turma_id',
+        'user_id',
     ];
     public $timestamps = false;
 

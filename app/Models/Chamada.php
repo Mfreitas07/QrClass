@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chamada extends Model
 {
-    protected $fillable = ['codigo', 'turma_id', 'data_aula'];
+    protected $fillable = ['codigo', 'turma_id', 'data_aula', 'user_id'];
 
     protected $casts = [
         'data_aula' => 'datetime',

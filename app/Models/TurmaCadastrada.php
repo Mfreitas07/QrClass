@@ -15,4 +15,9 @@ class TurmaCadastrada extends Model
     {
         return $this->hasMany(Alunos::class, 'turma_id');
     }
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }

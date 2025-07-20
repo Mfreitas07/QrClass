@@ -28,6 +28,7 @@ class Cad_AlunoController extends Controller
             'email' => $request->email,
             'password' => $senhaGerada, // sem criptografar
             'turma_id' => $request->turma_id,
+            'user_id' => auth()->id(), // salva quem cadastrou
         ]);
 
         // Redirecionar com a senha visível
@@ -37,7 +38,7 @@ class Cad_AlunoController extends Controller
     // Listar alunos (ex: histórico)
     public function index()
     {
-        $alunos = Alunos::all();
+        $alunos = Alunos::where('user_id', auth()->id())->get(); // ✅ correto
         Log::info($alunos); // Agora funciona
         return view('historico', compact('alunos'));
     }

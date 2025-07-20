@@ -28,12 +28,11 @@
             <label for="turma">Turma</label>
             <select id="turma" name="turma_id" required>
                 <option value="">Selecione uma turma</option>
-                @foreach ($turmas as $turma)
-                    <option value="{{ $turma->id }}">
-                        {{ $turma->curso }} - {{ $turma->turma }}
-                    </option>
+              @foreach ($turmas as $turma)
+                    <option value="{{ $turma->id }}">{{ $turma->curso }} - {{ $turma->turma }}</option>
                 @endforeach
             </select>
+
 
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" required>

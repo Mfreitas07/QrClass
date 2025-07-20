@@ -16,20 +16,23 @@ return new class extends Migration
 
             $table->string('nome_aluno');
             $table->string('email')->unique();
+            $table->string('password'); // Armazenada como texto simples por enquanto
 
-            // Senha em texto simples, conforme solicitado
-            $table->string('password');
-
-            // Chave estrangeira para a turma
+            // Relacionamento com a turma
             $table->unsignedBigInteger('turma_id');
-
-            $table->timestamps();
-
-            // Definição da chave estrangeira
             $table->foreign('turma_id')
                   ->references('id')
                   ->on('turma_cadastrada')
-                  ->onDelete('cascade'); // Deleta alunos ao deletar a turma
+                  ->onDelete('cascade');
+
+            // Relacionamento com o professor (usuário)
+            $table->unsignedBigInteger('user_id'); // Novo campo
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 

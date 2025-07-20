@@ -29,10 +29,11 @@ class TurmaController extends Controller
         Turma::create([
             'curso' => $request->curso,
             'turma' => $request->turma,
+            'user_id' => auth()->id(),
         ]);
 
         // Redirecionar com mensagem de sucesso
-        return redirect()->back()->with('success', 'Turma cadastrada com sucesso!');
+        return redirect()->route('gerenciar.turma')->with('mensagem', 'Turma cadastrada com sucesso!');
     }
 
     /**
@@ -42,7 +43,7 @@ class TurmaController extends Controller
     public function index(): View
     {
         $turmas = Turma::orderBy('curso')->get(); // Pega todas as turmas, ordenadas por curso.
-        $alunos = Alunos::all();
+        $alunos = Alunos::where('user_id', auth()->id())->get();
         // O Log deve vir antes do 'return' para ser executado.
         Log::info('Listagem de turmas carregada.', ['turmas_count' => $turmas->count()]);
 
@@ -57,7 +58,7 @@ class TurmaController extends Controller
     public function create(): View
     {
         // Buscar todas as turmas para que o usuário possa escolher uma.
-        $turmas = Turma::orderBy('curso')->get();
+        $turmas = Turma::where('user_id', auth()->id())->get();
 
         // Retornar a view do formulário, passando a lista de turmas para ela.
         return view('cadastrarAluno', compact('turmas'));
@@ -94,13 +95,15 @@ class TurmaController extends Controller
         return redirect()->back()->with('success', 'Aluno cadastrado com sucesso!');
     }
 
-    public function historico(Request $request)
+public function historico(Request $request)
 {
-    $turmas = TurmaCadastrada::all();
+    $turmas = TurmaCadastrada::where('user_id', auth()->id())->get(); // Filtra pelo professor logado
     $alunos = [];
 
     if ($request->filled('turma_id')) {
-        $turma = TurmaCadastrada::find($request->turma_id);
+        $turma = TurmaCadastrada::where('id', $request->turma_id)
+                                 ->where('user_id', auth()->id()) // Garante que a turma é do professor
+                                 ->first();
         $alunos = $turma ? $turma->alunos : [];
     }
 
@@ -110,7 +113,7 @@ class TurmaController extends Controller
 
 public function gerenciarTurma()
 {
-    $turmas = TurmaCadastrada::all(); // pega todas as turmas do banco
+    $turmas = TurmaCadastrada::where('user_id', auth()->id())->get(); // pega todas as turmas do banco
     return view('gerenciarTurma', compact('turmas'));
 }
 
