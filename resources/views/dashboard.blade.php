@@ -13,7 +13,7 @@
 
     <div class="access">
         <a class="btn Escolherturma" href="{{ route('gerenciar.turma') }}">Gerenciar Turma</a>
-        <a class="btn Plataforma" href="{{ route('professor.link') }}">Adicionar Link Plataforma</a>
+        <a class="btn Plataforma" href="{{ route('link.form') }}">Adicionar Link Plataforma</a>
 
         <form action="{{ route('logout') }}" method="post">
          @csrf

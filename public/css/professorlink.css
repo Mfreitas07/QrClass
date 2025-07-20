@@ -20,11 +20,11 @@ html, body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 100%;
     box-sizing: border-box;
-    height: 20vh
+    height: 20vh;
 }
 
 .top-bar img {
-    height: 15vh
+    height: 15vh;
 }
 
 .top-bar h1 {
@@ -33,7 +33,7 @@ html, body {
     word-break: break-word;
 }
 
-/* Área de botões */
+/* Área de botões e formulário */
 .access {
     display: flex;
     flex-direction: column;
@@ -46,23 +46,57 @@ html, body {
     box-sizing: border-box;
     text-decoration-color: white;
 }
-.access input {
+
+/* Form dentro da área .access */
+.access form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* espaço entre label, input e botão */
+    width: 100%;
+    max-width: 400px; /* largura máxima */
+    margin: 0 auto; /* centraliza horizontalmente */
+}
+
+.access form label {
+    align-self: flex-start; /* alinhado à esquerda */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.access form input {
+    width: 100%;
     padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
-    margin-top: 0px;
     border-radius: 10px;
-    transition: all linear 160ms;
     outline: none;
+    transition: border-color 0.2s ease;
 }
 
-.access input:focus {
-    border: 1px solid #f72585;
+.access form input:focus {
+    border-color: #f72585;
 }
 
+/* Botão do form menor, largura fixa 200px */
+.access form button {
+    width: 200px;
+    padding: 12px 0;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #fc65fa;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
 
-/* Botões */
+.access form button:hover {
+    background-color: #df13ce;
+}
+
+/* Botões gerais */
 .btn {
     background-color: #fc65fa;
     border: none;
@@ -86,12 +120,12 @@ html, body {
     bottom: 20px;
     left: 20px;
     z-index: 1000;
-
-    background-color: rgb(255, 255, 255); 
+    background-color: rgb(255, 255, 255);
     padding: 6px;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
+
 .voltar-btn img {
     width: 50px;
     height: auto;
