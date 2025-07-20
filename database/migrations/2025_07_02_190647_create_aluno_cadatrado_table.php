@@ -18,15 +18,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password'); // Armazenada como texto simples por enquanto
 
-            // Relacionamento com a turma
-            $table->unsignedBigInteger('turma_id');
-            $table->foreign('turma_id')
-                  ->references('id')
-                  ->on('turma_cadastrada')
-                  ->onDelete('cascade');
+            // ❌ Removido o campo turma_id
+            // $table->unsignedBigInteger('turma_id');
+            // $table->foreign('turma_id')
+            //       ->references('id')
+            //       ->on('turma_cadastrada')
+            //       ->onDelete('cascade');
 
-            // Relacionamento com o professor (usuário)
-            $table->unsignedBigInteger('user_id'); // Novo campo
+            // ✅ Relacionamento com o professor (usuário)
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')

@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class TurmaCadastrada extends Model
 {
-    // Define o nome da tabela correta (no singular)
     protected $table = 'turma_cadastrada';
 
-    protected $fillable = ['curso', 'turma'];
+    protected $fillable = ['curso', 'turma', 'user_id']; // Adicione user_id se ainda não estiver
 
-    public function alunos()
-    {
-        return $this->hasMany(Alunos::class, 'turma_id');
-    }
+   public function alunos()
+{
+    return $this->belongsToMany(Alunos::class, 'aluno_turma', 'turma_id', 'aluno_id');
+}
 
     public function user()
-{
-    return $this->belongsTo(User::class);
-}
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

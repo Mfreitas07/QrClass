@@ -17,8 +17,8 @@ class Alunos extends Model
     ];
     public $timestamps = false;
 
-    public function turma()
+     public function turmas()
     {
-        return $this->belongsTo(TurmaCadastrada::class, 'turma_id');
+        return $this->belongsToMany(TurmaCadastrada::class, 'aluno_turma', 'aluno_id', 'turma_id');
     }
-}
+    }

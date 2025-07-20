@@ -11,7 +11,6 @@
         <div class="top-bar">
             <h1>Cadastro de Aluno</h1>
         </div>
-
         {{-- Mensagem de sucesso com senha gerada --}}
         @if (session('success'))
             <div class="alert success" style="color: #f72585; margin-bottom: 10px;">
